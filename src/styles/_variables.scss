@@ -1,1 +1,80 @@
-// escopo de variáveis
+@charset 'utf-8';
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1440px;
+
+// Z-index
+$z-negative: -1;
+$z-normal: 1;
+$z-header: 100;
+$z-overlay: 200;
+$z-noise: 9000;
+$z-loader: 9999;
+
+:root {
+    // Cores
+    --color-bg: #0e172c;
+    --color-surface: #121d36;
+    --color-surface2: #162040;
+    --color-deep: #090f1e;
+
+    --color-border: rgba(167, 134, 223, 0.10);
+    --color-border2: rgba(167, 134, 223, 0.18);
+
+    // Texto
+    --color-ink: #fffffe; // texto principal
+    --color-ink2: #d9d4e7; //texto secundário
+    --color-ink3: #7a7590; // muted
+
+    // Acentos (da paleta)
+    --color-violet: #a786df; // acento primário
+    --color-violet2: #bfa0e8; // hover
+    --color-rose: #fec7d7; // acento secundário — CTA, score
+    --color-rose2: #ffd8e4; // rose hover
+
+    // Funcionais
+    --color-success: #34d399;
+    --color-alert: #f87171;
+    --color-info: #60a5fa;
+
+    // Fontes
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Geist', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+
+    // Tamanhos de fonte
+    --font-size-xs: clamp(1.0rem, 0.9rem + 0.25vw, 1.2rem);
+    --font-size-sm: clamp(1.2rem, 1.1rem + 0.25vw, 1.4rem);
+    --font-size-md: clamp(1.4rem, 1.3rem + 0.25vw, 1.6rem);
+    --font-size-lg: clamp(1.8rem, 1.6rem + 0.5vw, 2.2rem);
+    --font-size-xl: clamp(2.2rem, 2.0rem + 0.75vw, 2.8rem);
+    --font-size-xxl: clamp(3.0rem, 2.5rem + 1.5vw, 4.4rem);
+    --font-size-xxxl: clamp(4.0rem, 3.2rem + 2.5vw, 6.4rem);
+    --font-size-hero: clamp(5.0rem, 3.5rem + 8vw, 11.0rem);
+
+    // Espaçamentos 
+    --spacing-xs: 0.4rem;
+    --spacing-sm: clamp(1.2rem, 1rem + 0.5vw, 1.6rem);
+    --spacing-md: clamp(2.4rem, 2rem + 1vw, 3.2rem);
+    --spacing-lg: clamp(4.0rem, 3rem + 2vw, 6.0rem);
+    --spacing-section: clamp(6.0rem, 5rem + 4vw, 10.0rem);
+
+    // Layout 
+    --header-height: 52px;
+    --container-max: 1200px;
+
+    // Bordas
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-pill: 100px;
+
+    // Animações
+    --ease-smooth: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-bounce: cubic-bezier(0.2, 1, 0.4, 1);
+    --transition-fast: .15s var(--ease-smooth);
+    --transition-normal: .25s var(--ease-smooth);
+    --transition-slow: .4s var(--ease-bounce);
+}
