@@ -1,2 +1,11 @@
-// Estilização global e reset
+// arquivo pai
+@use './reset';
+@use './variables' as *;
 
+body {
+    background-color: var(--color-bg);  
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    font-size: var(--font-size-md);
+}
