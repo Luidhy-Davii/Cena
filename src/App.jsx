@@ -1,9 +1,9 @@
-
+import Navbar from "./components/navbar/navbar";
 function App() {
   return (
-    <header>
-      <h1>Cena</h1>
-    </header>
+    <>
+    <Navbar/>
+    </>
   )
 }
 
