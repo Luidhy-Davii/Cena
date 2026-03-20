@@ -1,0 +1,135 @@
+@use '../../styles/variables' as *;
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  padding-top: var(--header-height);
+  text-align: center;
+
+  // Blur de fundo (glow)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vh;
+    // Gradiente radial suave para criar o efeito de "luz" atrás do texto
+    background: radial-gradient(
+      circle,
+      rgba(167, 134, 223, 0.08) 0%, 
+      rgba(254, 199, 215, 0.04) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px); // Reforça o desfoque
+  }
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  max-width: 90%;
+  z-index: 1;
+}
+// Descubra - Assista - Repita
+.hero__eyebrow {
+  font-family: var(--font-mono);  
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-violet2);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  // Linhas laterais decorativas
+  &::before,
+  &::after {
+    content: '';
+    width: 25px;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.3;
+  }
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs); 
+  line-height: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 13vw, 8rem);;
+  color: var(--color-ink);
+}
+
+.hero__title-line {
+  display: flex;
+  justify-content: center;
+  gap: 0.25em;
+  white-space: nowrap;
+}
+
+.hero__title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(167, 134, 223, 0.488);  // Cor da borda do texto
+}
+
+.hero__title-italic {
+  font-style: italic;
+  color: var(--color-violet2);
+
+  &--rose {
+    color: var(--color-rose);
+    // Um leve brilho na palavra "cena" para destacar
+    filter: drop-shadow(0 0 15px rgba(254, 199, 215, 0.3));
+  }
+}
+
+.hero__description {
+  font-size: var(--font-size-md);
+  color: var(--color-ink3);
+  max-width: 500px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__scroll-text {
+  color: var(--color-ink);
+}
+
+.hero__scroll-icon {
+  font-size: var(--font-size-md);
+  color: var(--color-violet2);
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
