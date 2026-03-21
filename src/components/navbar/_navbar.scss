@@ -2,12 +2,23 @@
 
 .navbar {
     position: fixed;
-    z-index: $z-header; // 100
+    z-index: 1002; // Mantém no topo
     border-bottom: 1px solid var(--color-border);
     background: rgba(14, 23, 44, 0.98);
     backdrop-filter: blur(16px);
     height: var(--header-height);
     width: 100%;
+
+    // Manta invisível para detectar cliques fora do menu mobile
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+        background: transparent;
+    }
 
     &__nav {
         display: flex;
@@ -27,12 +38,12 @@
         align-items: center;
         gap: 7px;
         font-family: var(--font-mono);
-        font-size: var(--font-size-xl); // Tipografia fluída
+        font-size: var(--font-size-xl);
         font-weight: 500;
         text-transform: uppercase;
         color: var(--color-ink);
         text-decoration: none;
-        z-index: 10001; // Acima da manta
+        z-index: 10001; 
     }
 
     &__logo-dot {
@@ -55,7 +66,7 @@
         background: transparent;
         border: none;
         cursor: pointer;
-        z-index: 10001; // Acima da manta para o "X" funcionar
+        z-index: 10001;
 
         span {
             display: block;
@@ -68,23 +79,15 @@
         }
 
         &--open {
-            span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-
-            span:nth-child(2) {
-                opacity: 0;
-            }
-
-            span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
+            span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            span:nth-child(2) { opacity: 0; }
+            span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
     }
 
     &__links {
         display: none;
-
+        transition: opacity 0.3s ease;
 
         &--open {
             display: flex;
@@ -95,35 +98,31 @@
             gap: var(--spacing-sm);
             top: 0;
             left: 0;
-            width: 100vw; // Ocupa a largura total da tela
-            height: 100vh; // Ocupa a altura total da tela (Viewport)
-            height: 100dvh; // Suporte para barras dinâmicas de mobile (iOS/Android)
+            width: 100vw;
+            height: 100dvh;
             background: var(--color-bg);
-            z-index: 10000; // Abaixo apenas da Logo e do Hamburguer
+            z-index: 10000;
             animation: slideIn 0.3s ease-in-out;
+            opacity: 1;
         }
     }
 
     &__link {
-        font-size: var(--font-size-xs); // Usando variável
+        font-size: var(--font-size-xs);
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: var(--color-ink3);
         text-decoration: none;
         transition: all var(--transition-fast);
 
-        &:hover {
-            color: var(--color-rose); 
-        }
-
-    
+        &:hover { color: var(--color-rose); }
     }
 
+    // Estilo dos links quando o menu mobile está aberto
     &__links--open &__link {
         font-size: var(--font-size-xl); 
         letter-spacing: -1px;                           
         text-transform: none;
-        text-decoration: none;
         margin: var(--spacing-xs) 0;
 
         &:hover {
@@ -133,15 +132,8 @@
     }
 
     @media (min-width: 769px) {
-        &__hamburger {
-            display: none;
-        }
-
-        &__links {
-            display: flex;
-            height: 100%;
-            align-items: center;
-        }
+        &__hamburger { display: none; }
+        &__links { display: flex; height: 100%; align-items: center; }
 
         &__link {
             padding: 0 var(--spacing-md);
@@ -163,29 +155,17 @@
                 transition: transform var(--transition-normal);
             }
 
-            &:hover::after,
-            &--active::after {
-                transform: scaleX(1);
-            }
-
-            &:last-child {
-                border-right: 1px solid var(--color-border);
-            }
+            &:hover::after { transform: scaleX(1); }
+            &:last-child { border-right: 1px solid var(--color-border); }
         }
     }
 }
 
 @keyframes slideIn {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
+
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.7); }
