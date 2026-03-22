@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background-color: var(--color-bg);
   padding-top: var(--header-height);
   text-align: center;
