@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Navbar from './components/navbar/navbar'
-import Hero from './components/hero/Hero'
+import Hero from './components/hero/hero'
 import Discover from './components/discover/discover'
 
 function App() {
