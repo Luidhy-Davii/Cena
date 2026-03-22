@@ -194,8 +194,8 @@ function MovieCard({ item, index, onClick }) {
 }
 
 // ── MAIN ──
-function Discover() {
-  const [activeTab,    setActiveTab]    = useState('cartaz')
+// ── MAIN ──
+function Discover({ activeTab, setActiveTab }) {
   const [selectedItem, setSelectedItem] = useState(null)
   const { data, loading, error }        = useMovies(activeTab)
 

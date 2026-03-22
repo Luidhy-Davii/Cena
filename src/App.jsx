@@ -1,12 +1,16 @@
-import Navbar from "./components/navbar/navbar";
-import Hero from "./components/hero/hero";
-import Discover from "./components/discover/discover";
+import { useState } from 'react'
+import Navbar from './components/navbar/navbar'
+import Hero from './components/hero/Hero'
+import Discover from './components/discover/discover'
+
 function App() {
+  const [activeTab, setActiveTab] = useState('cartaz')
+
   return (
     <>
-    <Navbar/>
-    <Hero/>
-    <Discover/>
+      <Navbar setActiveTab={setActiveTab} />
+      <Hero />
+      <Discover activeTab={activeTab} setActiveTab={setActiveTab} />
     </>
   )
 }

@@ -1,23 +1,23 @@
 import './_hero.scss'
 
 function Hero() {
-  
+
 
   return (
     <section className="hero">
       <div className="hero__container">
-        
+
         <span className="hero__eyebrow">
           Descubra. Assista. Repita.
         </span>
 
         <h1 className="hero__title">
           <div className="hero__title-line">
-            <span className="hero__title-italic">Toda grande</span> 
+            <span className="hero__title-italic">Toda grande</span>
             <em className="hero__title-outline">história</em>
           </div>
           <div className="hero__title-line">
-            <span className="hero__title-outline">começa</span> numa 
+            <span className="hero__title-outline">começa</span> numa
             <em className="hero__title-italic hero__title-italic--rose">cena.</em>
           </div>
         </h1>
@@ -29,7 +29,7 @@ function Hero() {
 
       </div>
 
-      <a href='/' className="hero__scroll">
+      <a href='#descobrir' className="hero__scroll">
         <span className="hero__scroll-text">Explorar</span>
         <span className="hero__scroll-icon">↓</span>
       </a>
