@@ -586,6 +586,55 @@
     color: var(--color-rose);
     font-weight: 500;
   }
+
+  // ══════════════════
+  // PAGINAÇÃO
+  // ══════════════════
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+  }
+
+  &__page-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    background: transparent;
+    border: 1px solid var(--color-border2);
+    border-radius: var(--radius-sm);
+    color: var(--color-ink3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+
+    &:hover:not(:disabled) {
+      border-color: var(--color-violet);
+      color: var(--color-violet);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    &--active {
+      border-color: var(--color-rose);
+      color: var(--color-rose);
+      cursor: default;
+    }
+  }
+
+  &__page-ellipsis {
+    color: var(--color-ink3);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    padding: 0 4px;
+  }
 }
 
 // ══════════════════════════════
